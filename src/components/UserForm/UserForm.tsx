@@ -1,11 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {IUserMutation} from "../../types";
 
 const UserForm = () => {
+    const [info, setInfo] = useState<IUserMutation>({
+        name: '',
+        email: '',
+        active: false,
+        role: ''
+    });
+
+    const infoChange = (e:React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const {name, value} = e.target;
+
+        setInfo(prevState => ({
+            ...prevState,
+            [name]:value,
+        }))
+
+        console.log(name, value);
+    };
     const onSubmitForm = (e:React.FormEvent) => {
         e.preventDefault();
 
-        console.log("working")
-    }
+        console.log(info)
+    };
+
     return (
         <>
             <form onSubmit={onSubmitForm}>
@@ -17,6 +36,8 @@ const UserForm = () => {
                         name="name"
                         id="name"
                         className="form-control"
+                        value={info.name}
+                        onChange={infoChange}
                     />
                 </div>
                 <div className="email form-group">
@@ -26,22 +47,32 @@ const UserForm = () => {
                         name="email"
                         id="email"
                         className="form-control"
+                        value={info.email}
+                        onChange={infoChange}
                     />
                 </div>
                 <div className="active">
-                    <label htmlFor="active">Do you active user?  (check if yes)</label>
+                    <label htmlFor="active">Do you active user? (check if yes)</label>
                     <input
                         type="checkbox"
                         name="active"
                         id="active"
+                        checked={info.active}
+                        onChange={(e) => setInfo((prevState) => ({...prevState, active: e.target.checked}))}
                     />
                 </div>
                 <div className="role">
                     <label htmlFor="name"></label>
-                    <select className="form-select">
-                        <option>User</option>
-                        <option>Editor</option>
-                        <option>Admin</option>
+                    <select
+                        className="form-select"
+                        name="role"
+                        value={info.role}
+                        onChange={infoChange}
+                    >
+                        <option value="" disabled defaultValue="">Select your role</option>
+                        <option value="user">User</option>
+                        <option value="editor">Editor</option>
+                        <option value="admin">Admin</option>
                     </select>
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Send information</button>
