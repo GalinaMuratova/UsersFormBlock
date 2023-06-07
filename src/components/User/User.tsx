@@ -1,11 +1,18 @@
 import React from 'react';
-
-const User = () => {
+import UserItem from "./UserItem";
+// interface IUser {
+//     name: string,
+//     email:string,
+//     active:boolean,
+//     role:string
+// }
+// :React.FC<IUser>
+const User= () => {
     return (
         <>
-            <h4>User 1</h4>
-            <h4>User 1</h4>
-            <h4>User 1</h4>
+            <UserItem/>
+            <UserItem/>
+            <UserItem/>
         </>
     );
 };

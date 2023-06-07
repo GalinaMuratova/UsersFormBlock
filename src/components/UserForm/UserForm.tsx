@@ -29,7 +29,7 @@ const UserForm = () => {
                     />
                 </div>
                 <div className="active">
-                    <label htmlFor="active"></label>
+                    <label htmlFor="active">Do you active user?  (check if yes)</label>
                     <input
                         type="checkbox"
                         name="active"
