@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import {IUserMutation} from "../../types";
 
-const UserForm = () => {
+interface IProps {
+    onSubmit: (newInfo: { role: string; name: string; active: boolean; id: number; email: string }) => void;
+}
+const UserForm: React.FC<IProps> = ({onSubmit}) => {
     const [info, setInfo] = useState<IUserMutation>({
         name: '',
         email: '',
@@ -16,13 +19,16 @@ const UserForm = () => {
             ...prevState,
             [name]:value,
         }))
-
-        console.log(name, value);
     };
     const onSubmitForm = (e:React.FormEvent) => {
         e.preventDefault();
 
-        console.log(info)
+        onSubmit( {
+            id: Math.floor(Math.random() * 999999999),
+            ...info
+        });
+
+        console.log(info);
     };
 
     return (

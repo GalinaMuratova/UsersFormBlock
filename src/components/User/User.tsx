@@ -1,12 +1,17 @@
 import React from 'react';
 import UserItem from "./UserItem";
+import {IUser} from "../../types";
 
-const User= () => {
+interface IUserProps {
+    intelligence: IUser[];
+}
+const User: React.FC<IUserProps> = ({intelligence}) => {
     return (
         <>
-            <UserItem/>
-            <UserItem/>
-            <UserItem/>
+            <h3>Users:</h3>
+            {intelligence.map((info) => (
+                <UserItem key={info.id} information={info}/>
+            ))}
         </>
     );
 };

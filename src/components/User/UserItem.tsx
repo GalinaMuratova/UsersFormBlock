@@ -1,12 +1,19 @@
 import React from 'react';
+import {IUser} from "../../types";
 
-const UserItem = () => {
+interface IUserItemProps {
+    information: IUser;
+}
+const UserItem: React.FC<IUserItemProps> = ({information}) => {
+    let active: string = '';
+    information.active ? active = 'active' : active = 'inactive';
+
     return (
         <div className="card mb-2 p-3">
-            <h5>Name</h5>
-            <p>Email:</p>
-            <p>Active</p>
-            <p>Select</p>
+            <h5>{information.name}</h5>
+            <p>Email: {information.email}</p>
+            <p>Activity: {active}</p>
+            <p>Role: {information.role}</p>
         </div>
     );
 };
