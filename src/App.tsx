@@ -5,11 +5,11 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App d-flex justify-content-around container-fluid">
-        <div className="user-form">
+    <div className="App row d-flex justify-content-around container-fluid">
+        <div className="user-form col-6">
             <UserForm/>
         </div>
-        <div className="users">
+        <div className="users col-6">
             <User/>
         </div>
     </div>
