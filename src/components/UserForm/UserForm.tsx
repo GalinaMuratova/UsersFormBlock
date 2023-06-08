@@ -34,7 +34,7 @@ const UserForm: React.FC<IProps> = ({onSubmit}) => {
     return (
         <>
             <form onSubmit={onSubmitForm}>
-                <h4>Please enter the form</h4>
+                <h4 className="text-center">Please enter the form</h4>
                 <div className="name form-group">
                     <label htmlFor="name">Name</label>
                     <input
@@ -44,9 +44,10 @@ const UserForm: React.FC<IProps> = ({onSubmit}) => {
                         className="form-control"
                         value={info.name}
                         onChange={infoChange}
+                        required
                     />
                 </div>
-                <div className="email form-group">
+                <div className="email form-group mb-2">
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -55,10 +56,11 @@ const UserForm: React.FC<IProps> = ({onSubmit}) => {
                         className="form-control"
                         value={info.email}
                         onChange={infoChange}
+                        required
                     />
                 </div>
                 <div className="active">
-                    <label htmlFor="active">Do you active user? (check if yes)</label>
+                    <label htmlFor="active">Do you active user? (check if yes) </label>
                     <input
                         type="checkbox"
                         name="active"
@@ -74,6 +76,7 @@ const UserForm: React.FC<IProps> = ({onSubmit}) => {
                         name="role"
                         value={info.role}
                         onChange={infoChange}
+                        required
                     >
                         <option value="" disabled defaultValue="">Select your role</option>
                         <option value="user">User</option>

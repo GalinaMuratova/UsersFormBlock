@@ -8,7 +8,7 @@ interface IUserProps {
 const User: React.FC<IUserProps> = ({intelligence}) => {
     return (
         <>
-            <h3>Users:</h3>
+            <h3 className="text-center">Users:</h3>
             {intelligence.map((info) => (
                 <UserItem key={info.id} information={info}/>
             ))}

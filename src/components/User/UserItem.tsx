@@ -9,7 +9,7 @@ const UserItem: React.FC<IUserItemProps> = ({information}) => {
     information.active ? active = 'active' : active = 'inactive';
 
     return (
-        <div className="card mb-2 p-3">
+        <div className="card card-style mx-auto mb-2 p-3">
             <h5>{information.name}</h5>
             <p>Email: {information.email}</p>
             <p>Activity: {active}</p>

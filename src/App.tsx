@@ -12,10 +12,10 @@ const App = () => {
   };
   return (
     <div className="App row d-flex justify-content-around container-fluid">
-        <div className="user-form col-6">
+        <div className="user-form col-5 p-2">
             <UserForm onSubmit={addInfo}/>
         </div>
-        <div className="users col-6">
+        <div className="users col-5 p-2">
             <User intelligence={information}/>
         </div>
     </div>
